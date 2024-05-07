@@ -32,12 +32,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: whoami-ingress
+  # annotations:
+  #  nginx.ingress.kubernetes.io/auth-type: basic
+  #  nginx.ingress.kubernetes.io/auth-secret: basic-auth
+  #  nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required - foo'
+  #  nginx.ingress.kubernetes.io/rewrite-target: "/"
 spec:
   ingressClassName: nginx
-  #tls: # for TLS
-  #- hosts:
-  #  - whoami.rewinder.am
-  #  secretName: wildcard
+  # tls: # for TLS
+  # - hosts:
+  #   - whoami.rewinder.am
+  #   secretName: wildcard
   rules:
     - host: whoami.rewinder.am
       http:
